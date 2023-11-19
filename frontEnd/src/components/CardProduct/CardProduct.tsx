@@ -5,17 +5,14 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { HiCurrencyDollar } from 'react-icons/hi';
 import { BsFillCartPlusFill, BsFillCartDashFill } from 'react-icons/bs';
 import Context from '@/Context/Context';
-import { TItem } from '@/Context/ContextTypes';
 import styles from '../../styles/CardProduct.module.css';
 import useProducts from '../../hooks/useProducts';
-import useServiceProducts from '@/pages/api/service/productsService';
-import Link from 'next/link';
 
-export default function CardProduct({ id, name, src, value} : TCardProduct) {
+
+export default function CardProduct({ id, name, url_image, value} : TCardProduct) {
     const router = useRouter();
 const { total, cart, setTotal, item, setItem } = useContext(Context);
 const [favorite, setFavorite] = useState(false);
-//const [item, setItem] = useState<TItem>({id: '', name: '', src: '', value: 0, quantity: 0, subTotal: 0});
 const [unity, setUnity] = useState(0);
 const {newItem, quantityInCart } = useProducts();
 
@@ -50,7 +47,7 @@ const addInCart = () => {
     setItem({
         id: id,
         name: name,
-        src: src,
+        url_image: url_image,
         value: value,
         quantity: unity + 1,
         subTotal: value * (unity + 1)
@@ -63,7 +60,7 @@ const removeOfCart = () =>{
     setItem({
         id: id,
         name: name,
-        src: src,
+        url_image: url_image,
         value: value,
         quantity: unity -1,
         subTotal: value * (unity -1)
@@ -93,7 +90,7 @@ return (
         </div>
         <div onClick={() => redirectToDetails(id)}>
         <div className={styles.descriptionImg}>
-            <img style={{height:'12rem', width:'10rem'}} src={src} alt={name} />
+            <img style={{height:'12rem', width:'10rem'}} src={url_image} alt={name} />
         </div>
         <div className={styles.descriptionTxt}>
             <p className={styles.name}>{name}</p>
