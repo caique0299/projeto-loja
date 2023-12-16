@@ -1,0 +1,1 @@
+export type TCardProduct= { id: string, name: string, urlImage: string, value: number, description:string }

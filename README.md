@@ -9,7 +9,7 @@ informações:
 - Peço que rode o "docker compose -f "web-store/docker-compose.yaml" up -d --build" no seu terminal bash, isso fará com que o banco de dados possua o ambiente ideal para funcionar corretamente.
 
 
-1 passo - Fazer o back funcionar
+1 passo - Fazer o backf funcionar
 
 cd web-store/backEnd
 yarn install
